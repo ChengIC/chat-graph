@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI ChatBot with Graph</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>AI ChatBot with Graph</h1>
+        <div id="chatbox">
+            <p class="botText"><span>Hi! I'm Your bot.</span></p>
+        </div>
+
+        <form id="chatForm">
+            <input id="userInput" type="text" name="msg" placeholder="Message" class="form-control">
+            <button type="submit" id="sendButton" class="btn btn-warning">Send</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#chatForm").on("submit", function(event) {
+                event.preventDefault();
+
+                let userInput = $("#userInput").val();
+                $("#userInput").val("");
+
+                let userHtml = '<p class="userText"><span>' + userInput + "</span></p>";
+                $("#chatbox").append(userHtml);
+
+                $.post("/get", { msg: userInput }, function(data) {
+                    let botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                    $("#chatbox").append(botHtml);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
