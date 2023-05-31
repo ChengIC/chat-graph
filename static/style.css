@@ -165,3 +165,17 @@ button, input, optgroup, select, textarea {
     right: 0;
     width: 300px;
 }
+
+.botText1 {
+    background-color: #ADD8E6; /* This will be light blue */
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.botText2  {
+    background-color: #FFA07A; /* This will be light salmon */
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}

@@ -32,12 +32,8 @@
                 $("#chatbox").append(userHtml);
 
                 $.post("/get", { msg: userInput }, function(data) {
-                    let splitResponse = data.split("The chain process is");
-                    let botHtml1 = '<p class="botText botText1"><span>' + splitResponse[0] + "</span></p>";
-                    let botHtml2 = '<p class="botText botText2"><span>' + "The chain process is" + splitResponse[1] + "</span></p>";
-
-                    $("#chatbox").append(botHtml1);
-                    $("#chatbox").append(botHtml2);
+                    let botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                    $("#chatbox").append(botHtml);
                 });
             });
         });
