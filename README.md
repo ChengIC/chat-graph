@@ -3,7 +3,7 @@ A flask app chat with graph
 
 # Start on local
 ```
-nohup python -u main.py & 
+python -u main_lang.py & 
 ```
 
 
